@@ -1,0 +1,20 @@
+{
+  "name": "mavis",
+  "version": "1.0.0",
+  "description": "Reliable javascript type checker",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "keywords": [
+    "javascript",
+    "type",
+    "typeof",
+    "primitive",
+    "checker",
+    "data",
+    "match"
+  ],
+  "author": "Jesse Gibson <jesse@gundb.io> (http://techllama.com)",
+  "license": "MIT"
+}
