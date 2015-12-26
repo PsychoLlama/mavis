@@ -16,6 +16,9 @@ var type;
 	}
 
 	type = function (data) {
+		if (!arguments.length) {
+			return null;
+		}
 		var description = check(data);
 		switch (description) {
 		case 'number':
@@ -24,10 +27,8 @@ var type;
 			}
 			break;
 		case 'function':
-			if (Function.prototype.isGenerator) {
-				if (data.isGenerator()) {
-					return 'generator';
-				}
+			if (data.constructor.name === 'GeneratorFunction') {
+				return 'generator';
 			}
 			break;
 		}

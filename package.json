@@ -1,6 +1,6 @@
 {
   "name": "mavis",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reliable javascript type checker",
   "main": "index.js",
   "scripts": {

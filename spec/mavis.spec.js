@@ -5,8 +5,11 @@
 var type = require('../index.js');
 
 describe('mavis', function () {
+	it('should return null without input', function () {
+		expect(type()).toBe(null);
+	});
 	it('should recognize undefined', function () {
-		var val = type();
+		var val = type(undefined);
 		expect(val).toBe('undefined');
 	});
 	it('should recognize booleans', function () {
