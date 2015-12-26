@@ -27,12 +27,17 @@ var type;
 				return 'NaN';
 			}
 			break;
+
 		case 'function':
 			if (data.constructor.name === 'GeneratorFunction') {
 				return 'generator';
 			}
 			break;
+
+		case 'window':
+			return 'global';
 		}
+
 		if (description.match(/html/i)) {
 			return 'html';
 		}
