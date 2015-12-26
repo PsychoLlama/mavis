@@ -20,6 +20,7 @@ var type;
 			return null;
 		}
 		var description = check(data);
+
 		switch (description) {
 		case 'number':
 			if (isNaN(data)) {
@@ -31,6 +32,9 @@ var type;
 				return 'generator';
 			}
 			break;
+		}
+		if (description.match(/html/i)) {
+			return 'html';
 		}
 
 		return description;

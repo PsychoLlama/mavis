@@ -12,9 +12,9 @@ var type = require('mavis')
 type('data') // 'string'
 type([]) // 'array'
 type(NaN) // 'NaN'
-type(new ArbitraryClassInstance) // 'object'
+type(new CustomClassInstance) // 'object'
 type(function*() {}) // 'generator'
-type(new Set) // 'set'
+type(htmlElement) // 'html'
 ```
 
 > **warning:** Some built-in objects have more specific types. For example, type(JSON) returns 'json' and window/global returns it's name. This only applies to built-in values.
