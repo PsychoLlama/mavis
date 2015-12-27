@@ -50,4 +50,12 @@ describe('mavis', function () {
 		var val = type(new Potato());
 		expect(val).toBe('object');
 	});
+	it('should call math an object', function () {
+		var val = type(Math);
+		expect(val).toBe('object');
+	});
+	it('should capitalize RegExp', function () {
+		var val = type(/test/);
+		expect(val).toBe('RegExp');
+	});
 });

@@ -36,6 +36,12 @@ var type;
 
 		case 'window':
 			return 'global';
+
+		case 'math':
+			return 'object';
+
+		case 'regexp':
+			return 'RegExp';
 		}
 
 		if (description.match(/html/i)) {
