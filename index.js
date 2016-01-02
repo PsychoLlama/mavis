@@ -26,6 +26,9 @@ var type;
 			if (isNaN(data)) {
 				return 'NaN';
 			}
+			if (!isFinite(data)) {
+				return 'infinity';
+			}
 			break;
 
 		case 'function':
@@ -38,6 +41,7 @@ var type;
 			return 'global';
 
 		case 'math':
+		case 'json':
 			return 'object';
 
 		case 'regexp':
@@ -49,6 +53,19 @@ var type;
 		}
 
 		return description;
+	};
+
+	type.is = function (actual, Expected) {
+		if (arguments.length < 2) {
+			throw new Error('Not enough arguments');
+		}
+		if (type(Expected) === 'function') {
+			Expected = type(new Expected());
+		}
+		if (type(Expected) !== 'string') {
+			Expected = type(Expected);
+		}
+		return type(actual) === Expected;
 	};
 
 }());

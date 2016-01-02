@@ -1,6 +1,6 @@
 {
   "name": "mavis",
-  "version": "1.3.1",
+  "version": "1.4.1",
   "description": "Reliable javascript type checker",
   "main": "index.js",
   "scripts": {
@@ -8,11 +8,16 @@
   },
   "keywords": [
     "javascript",
+		"object",
+		"array",
     "type",
     "typeof",
     "primitive",
     "checker",
+    "value",
+    "category",
     "data",
+    "matcher",
     "match"
   ],
   "repository": {
