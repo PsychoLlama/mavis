@@ -36,7 +36,7 @@ type(NaN) // 'NaN'
 
 // strings
 type('string') // 'string'
-type(``template $(string)``) // 'string'
+type(`template $(string)`) // 'string'
 
 // errors
 type(new Error) // 'error'
