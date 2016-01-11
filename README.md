@@ -1,5 +1,5 @@
 # Mavis
-[![Travis](https://img.shields.io/travis/PsychoLlama/mavis.svg?style=flat-square)](https://travis-ci.org/PsychoLlama/mavis.svg?branch=master)[![npm](https://img.shields.io/npm/dt/mavis.svg?style=flat-square)](https://www.npmjs.com/package/mavis)[![npm](https://img.shields.io/npm/v/mavis.svg?style=flat-square)](https://www.npmjs.com/package/mavis)
+[![Travis](https://img.shields.io/travis/PsychoLlama/mavis.svg?style=flat-square)](https://travis-ci.org/PsychoLlama/mavis)[![npm](https://img.shields.io/npm/dt/mavis.svg?style=flat-square)](https://www.npmjs.com/package/mavis)[![npm](https://img.shields.io/npm/v/mavis.svg?style=flat-square)](https://www.npmjs.com/package/mavis)
 
 Reliable, light-weight, highly-specific type checking for javascript. Like a thorough `typeof`.
 
