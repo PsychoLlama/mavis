@@ -2,7 +2,7 @@
 /*globals describe, it, expect, jasmine*/
 'use strict';
 
-var type = require('../index.js');
+var type = require('../mavis.js');
 
 describe('mavis', function () {
 	it('should return null without input', function () {
@@ -103,23 +103,28 @@ describe('mavis', function () {
 		it('should return true for matching non-primitives', function () {
 			expect(type.is({}, 'object')).toBe(true);
 			expect(type.is([], 'array')).toBe(true);
+			expect(type.is([], 'string')).toBe(false);
+			expect(type.is([], 'map')).toBe(false);
 			expect(type.is([], 'object')).toBe(false);
 			expect(type.is({}, 'array')).toBe(false);
+			expect(type.is(Infinity, 'array')).toBe(false);
+			expect(type.is(Infinity, 'object')).toBe(false);
+			expect(type.is(Infinity, 'RegExp')).toBe(false);
+			expect(type.is(Infinity, 'infinity')).toBe(true);
 		});
 
-		it('should accept constructors to match against', function () {
-			expect(type.is([], Array)).toBe(true);
-			expect(type.is({}, Object)).toBe(true);
-			expect(type.is(5, Number)).toBe(true);
-			expect(type.is(Infinity, Infinity)).toBe(true);
-			expect(type.is('string', String)).toBe(true);
+		it('should accept arrays of comparisons', function () {
+			expect(type.is('string', [])).toBe(false);
+			expect(type.is({}, ['string', 'number'])).toBe(false);
+			expect(type.is(5, ['array', 'object'])).toBe(false);
+			expect(type.is('string', ['map', 'number'])).toBe(false);
+			expect(type.is('string', ['stylish', 'llama', 'potato'])).toBe(false);
 		});
 
-		it('should take non-constructors as raw values', function () {
-			expect(type.is(null, undefined)).toBe(false);
-			expect(type.is(null, null)).toBe(true);
-			expect(type.is('string', undefined)).toBe(false);
-			expect(type.is(Number(), 10)).toBe(true);
+		it('should return the matching type against an array', function () {
+			expect(type.is({}, ['string', 'object'])).toBe('object');
+			expect(type.is(5, ['number', 'string'])).toBe('number');
+			expect(type.is('string', ['map', 'number', 'string'])).toBe('string');
 		});
 
 	});

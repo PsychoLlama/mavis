@@ -1,8 +1,8 @@
 {
   "name": "mavis",
-  "version": "1.4.1",
-  "description": "Reliable javascript type checker",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Thorough javascript type checker",
+  "main": "mavis.js",
   "scripts": {
     "test": "jasmine"
   },
@@ -24,7 +24,7 @@
     "type": "git",
     "url": "git+https://github.com/PsychoLlama/mavis.git"
   },
-  "author": "Jesse Gibson <jesse@gundb.io> (http://techllama.com)",
+  "author": "Jesse Gibson <jesse@gundb.io> (http://PsychoLlama.io)",
   "license": "MIT",
   "devDependencies": {
     "jasmine": "^2.4.1"

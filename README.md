@@ -1,7 +1,7 @@
 # Mavis
 [![Travis](https://img.shields.io/travis/PsychoLlama/mavis.svg?style=flat-square)](https://travis-ci.org/PsychoLlama/mavis.svg?branch=master)[![npm](https://img.shields.io/npm/dt/mavis.svg?style=flat-square)](https://www.npmjs.com/package/mavis)[![npm](https://img.shields.io/npm/v/mavis.svg?style=flat-square)](https://www.npmjs.com/package/mavis)
 
-Reliable, light-weight type checking for javascript. Like a thorough `typeof`.
+Reliable, light-weight, highly-specific type checking for javascript. Like a thorough `typeof`.
 
 I found myself writing this code over and over, so I figured I'd make a package out of it and send it to the internet.
 
@@ -12,10 +12,16 @@ Mavis works both in node and the browser. Simply include it as a `<script>` tag 
 `$ npm install mavis` and `require('mavis')` from your app.
 
 ### examples
+```javascript
+// node
+var type = require('mavis')
+```
+```html
+<!-- browser -->
+<script src="mavis.js"></script>
+```
 
 ```javascript
-var type = require('mavis')
-
 // objects
 type({}) // 'object'
 type([]) // 'array'
@@ -73,24 +79,22 @@ type(new Uint16Array) // 'uint16array'
 
 ### type.is(actual, expected)
 
-Mavis also exposes a type comparison function.
-It will return a boolean if both sides are
-type equivalent. Pass in the data to match against,
-then the matcher. You can pass a constructor
-to match against, an equivalent type (num is type num),
-or a string descriptor.
+Mavis comes with type comparison. The result of a comparison is a boolean, unless you pass an array to match against, in which case the matching type is returned.
 
 ```javascript
-type.is('string', String) // true
-type.is([1, 2, 3], Object) // false
+type.is('string', 'string') // true
+type.is([1, 2, 3], 'html') // false
 type.is(JSON, 'object') // true
-type.is(5, 10) // true (same type)
+type.is(5, ['object', 'number', 'array']) // 'number'
 
 type.is(/exp/, 'RegExp') // true
-type.is(/exp/, RegExp) // true
-type.is(/exp/, /other exp/) // true (same type)
+type.is(/exp/, ['number', 'generator']) // false
+type.is(/exp/, ['number', 'RegExp']) // 'RegExp'
 type.is(/exp/, 'string') // false
 ```
+
+## advantages
+Mavis is intentionally string-based. Some libraries check by constructor, although this forces you to ensure the type is defined before using it. By using strings, type-checking is completely backwards/forwards compatible. If a type you need to check against isn't supported in your browser, you can check for it without worrying. It's just a string!
 
 ## final words
 

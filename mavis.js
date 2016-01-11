@@ -3,7 +3,7 @@
 /*
 	type-checking inspired by npm's
 	massively popular isArray package
-	
+
 	name inspired by Mavis Beacon
 */
 var type;
@@ -55,17 +55,25 @@ var type;
 		return description;
 	};
 
-	type.is = function (actual, Expected) {
+	type.is = function (input, comparison) {
 		if (arguments.length < 2) {
 			throw new Error('Not enough arguments');
 		}
-		if (type(Expected) === 'function') {
-			Expected = type(new Expected());
+		var match, actual, expected;
+		expected = type(comparison);
+		actual = type(input);
+
+		switch (expected) {
+		case 'string':
+			return actual === comparison;
+		case 'array':
+			match = comparison.filter(function (expected) {
+				return actual === expected && expected;
+			});
+			return !!match.length && match[0];
+		case 'function':
+			throw new TypeError('Constructors are deprecated');
 		}
-		if (type(Expected) !== 'string') {
-			Expected = type(Expected);
-		}
-		return type(actual) === Expected;
 	};
 
 }());
