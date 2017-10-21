@@ -1,6 +1,10 @@
-# Mavis
+# [unmaintained] Mavis
 [![Travis](https://img.shields.io/travis/PsychoLlama/mavis.svg?style=flat-square)](https://travis-ci.org/PsychoLlama/mavis)[![npm](https://img.shields.io/npm/dt/mavis.svg?style=flat-square)](https://www.npmjs.com/package/mavis)[![npm](https://img.shields.io/npm/v/mavis.svg?style=flat-square)](https://www.npmjs.com/package/mavis)
 
+## Maintenance Notice
+I don't maintain this library anymore. Use [`type-detect`](https://www.npmjs.com/package/type-detect) instead. It's similar and they do a much better job.
+
+## Why
 Reliable, light-weight, highly-specific type checking for javascript. Like a thorough `typeof`.
 
 I found myself writing this code over and over, so I figured I'd make a package out of it and send it to the internet.
@@ -11,7 +15,7 @@ Mavis works both in node and the browser. Simply include it as a `<script>` tag 
 
 `$ npm install mavis` and `require('mavis')` from your app.
 
-### examples
+### Examples
 ```javascript
 // node
 var type = require('mavis')
@@ -77,7 +81,7 @@ type(/matcher/) // 'RegExp'
 type(new Uint16Array) // 'uint16array'
 ```
 
-### type.is(actual, expected)
+### `type.is(actual, expected)`
 
 Mavis comes with type comparison. The result of a comparison is a boolean, unless you pass an array to match against, in which case the matching type is returned.
 
@@ -93,10 +97,10 @@ type.is(/exp/, ['number', 'RegExp']) // 'RegExp'
 type.is(/exp/, 'string') // false
 ```
 
-## advantages
+## Advantages
 Mavis is intentionally string-based. Some libraries check by constructor, although this forces you to ensure the type is defined before using it. By using strings, type-checking is completely backwards/forwards compatible. If a type you need to check against isn't supported in your browser, you can check for it without worrying. It's just a string!
 
-## final words
+## Final Words
 
 If you have any issues, problems, or questions, please submit an issue on [GitHub](https://github.com/PsychoLlama/mavis).
 
